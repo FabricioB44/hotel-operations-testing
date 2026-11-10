@@ -13,4 +13,23 @@ public class RoomTest {
         assertTrue(room.getIsDirty());
     }
 
+    @Test
+    public void checkOut_deoccupy_room_but_keep_dirty() {
+        Room room = new Room(2, 100.0, true, true);
+
+        room.checkOut();
+
+        assertFalse(room.getIsOccupied());
+        assertTrue(room.getIsDirty());
+    }
+
+    @Test
+    public void cleanRoom_make_clean() {
+        Room room = new Room(2, 100.0, false, true);
+
+        room.cleanRoom();
+
+        assertFalse(room.getIsDirty());
+    }
+
 }
